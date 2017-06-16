@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <SafariServices/SafariServices.h>
 
 @interface ViewController ()
 
@@ -16,14 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)viewDidAppear:(BOOL)animated {
+    NSString *detailPath = @"https://www.google.com";
+    SFSafariViewController * safari = [[SFSafariViewController alloc]initWithURL:[NSURL URLWithString:detailPath]];
+    [self presentViewController:safari animated:YES completion:nil]; //can not be placed in view did load 
 }
-
 
 @end
